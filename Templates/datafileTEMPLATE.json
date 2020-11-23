@@ -1,0 +1,16 @@
+{
+	"welcomes" : ["Traveller TARGET, has arrived!",
+				"The Great TARGET, has arrived!"],
+	"RandomPirateSongs" : [
+		{
+			"URL" : "https://www.youtube.com/watch?v=dFBBKfw59kA",
+			"Name" : "He's a Pirate",
+			"Author" : "Colossal Trailer Music"
+		},
+		{
+			"URL" : "https://www.youtube.com/watch?v=Pm22lKKf2B0",
+			"Name" : "The Kraken",
+			"Author" : "Hans Zimmer"
+		}
+	]
+}

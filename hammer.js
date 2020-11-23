@@ -81,8 +81,6 @@ function initInviteCount(){
 			});
 		}
 	});
-
-	initCon.end();
 }
 
 function updateInviteCount(member){
@@ -259,7 +257,7 @@ function genXp(){
 //blackwake server browser
 function updateserverlist(){
 	var interval = setInterval(function(){
-  		fetch(`"https://api.steampowered.com/IGameServersService/GetServerList/v1/?key=${config.apiKeys.steam}}&format=json&filter=\\appid\\420290`).then(res=>res.json()).then(resp=>{ //fetch the server list through the steam API, convert the result into a json object (makes it easier to access)
+  		fetch(`https://api.steampowered.com/IGameServersService/GetServerList/v1/?key=${config.apiKeys.steam}&format=json&filter=\\appid\\420290`).then(res=>res.json()).then(resp=>{ //fetch the server list through the steam API, convert the result into a json object (makes it easier to access)
     		let serverlist = resp.response.servers;
     		if (typeof serverlist === undefined){
       			console.log("Got an empty response");
@@ -291,7 +289,6 @@ function updateserverlist(){
       			finalServerList = finalServerList.replace(/discord\.gg/g,"disc.gg") + "```";
       			finalServerStatus = finalServerStatus + "```";
       			bot.channels.get("660578877273276417").fetchMessage("676764826495746058").then(msg => {msg.edit(finalServerList);});
-      			bot.channels.get("660578877273276417").fetchMessage("674727122891440129").then(msg => {msg.edit(finalServerStatus);});
     		}
   		});
   	},6000);
@@ -493,7 +490,7 @@ function clean(text) {
     }
 }
 
-//BW SERVER COMMANDS
+//BW SERVER COMMANDS (makes use of FTP)
 function addMod(ID){
   	let client = new FTP();
   	client.connect({
@@ -683,11 +680,11 @@ bot.on("ready" , () =>{
 	bot.user.setActivity("Hole Repair");
 
 	//initInviteCount();
-	updateleaderboard();
+	//updateleaderboard();
 	
-	setTimeout(function(){
-		updateserverlist();
-	},1000);
+	//setTimeout(function(){
+	//	updateserverlist();
+	//},1000);
 	
 	setInterval(() =>{
 		ISSLocation();
@@ -739,6 +736,8 @@ bot.on("message", async message =>{
 
 	if (message.content.includes("<@626904421628117003>")){
 		message.react("🤔");
+	}else if (message.content.toLowerCase() === "!key"){
+		message.channel.send("No 🙂.");
 	}
 
 	// Support ticket

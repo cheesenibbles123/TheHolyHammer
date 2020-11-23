@@ -1,0 +1,18 @@
+{
+	"prefix" : ";",
+	"apiKeys" : {
+		"steam" : "steamAPI Key"
+	},
+	"token" : "Bot token key",
+	"databaseInfo" : {
+		"host" : "host",
+		"user" : "user",
+		"password" : "password",
+		"database" : "database"
+	},
+	"ftpSetup" : {
+		"host":"host",
+		"user":"user",
+		"password":"password"
+	}
+}
