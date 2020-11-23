@@ -1,0 +1,2 @@
+# TheHolyHammer
+Simple discord bot
